@@ -7,7 +7,8 @@ public class Person {
         this.pet = pet;
     }
 
-    public void callYourPet(){
+    public void callYourPet() {
         System.out.println("Hello, my lovely Pet!");
+        pet.say();
     }
 }
