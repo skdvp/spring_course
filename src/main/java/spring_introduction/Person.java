@@ -7,11 +7,7 @@ import org.springframework.stereotype.Component;
 @Component("personBean")
 public class Person {
     private Pet pet;
-    //    @Value("Tregulov") //Hardcoded
-    @Value("${person.surname}") //ok <context:property-placeholder location="myApp.properties"/>
     private String surname;
-    //    @Value("33") //Hardcoded
-    @Value("${person.age}") //ok <context:property-placeholder location="myApp.properties"/>
     private String age;
 
     public Person(@Qualifier("dog") Pet pet) { // перед параметром
