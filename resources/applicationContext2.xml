@@ -11,7 +11,9 @@
 
     <bean id="myPet"
           class="spring_introduction.Dog"
-          scope="prototype"> <!--каждый раз будет новый объект-->
+          init-method="init"
+          destroy-method="destroy"
+          scope="prototype">
     </bean>
 
 
