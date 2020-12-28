@@ -10,6 +10,10 @@ public class Person {
     private String surname;
     private String age;
 
+    public Person() {
+        System.out.println("Person bean is created");
+    }
+
     public String getSurname() {
         return surname;
     }
@@ -28,13 +32,8 @@ public class Person {
         this.age = age;
     }
 
-    @Autowired // с 4.3 : имеется всего один конструктор, то можно не писать
-    public Person(Pet pet) {
-        System.out.println("Person bean is created");
-        this.pet = pet;
-    }
-
-    public void setPet(Pet pet) {
+    @Autowired
+    public void setPet(Pet pet) { // необязательно сеттер, можно любой
         System.out.println("Class Person: set Pet");
         this.pet = pet;
     }
