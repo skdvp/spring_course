@@ -11,7 +11,7 @@
 
     <bean id="myPet"
           class="spring_introduction.Dog"
-          scope="singleton"> <!--можно не писать-->
+          scope="prototype"> <!--каждый раз будет новый объект-->
     </bean>
 
 
