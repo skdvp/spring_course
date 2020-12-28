@@ -1,9 +1,11 @@
 package spring_introduction;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.Scope;
 
 // способ  2 без xml : не используется @Configuration и @ComponentScan
+@PropertySource("classpath:myApp.properties")
 public class MyConfig {
 
     @Bean
