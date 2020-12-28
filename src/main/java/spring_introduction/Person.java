@@ -1,16 +1,11 @@
 package spring_introduction;
 
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
-
-@Component("personBean")
 public class Person {
     private Pet pet;
     private String surname;
     private String age;
 
-    public Person(@Qualifier("dog") Pet pet) { // перед параметром
+    public Person(Pet pet) {
         System.out.println("Person bean is created");
         this.pet = pet;
     }

@@ -1,9 +1,21 @@
 package spring_introduction;
 
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Scope;
 
-@Configuration
-@ComponentScan("spring_introduction")
+// способ  2 без xml : не используется @Configuration и @ComponentScan
 public class MyConfig {
+
+    @Bean
+    @Scope("singleton")
+    public Pet catBean(){ // Bean - это назв. метода
+        return new Cat();
+    }
+    // если @Scope("singleton") - то return new Cat() сработает 1 раз!
+
+
+    @Bean
+    public  Person personBean(){
+        return new Person(catBean());
+    }
 }
