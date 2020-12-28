@@ -9,5 +9,6 @@
 
 
     <context:component-scan base-package="spring_introduction"/>
+    <context:property-placeholder location="myApp.properties"/>
 
 </beans>
