@@ -1,6 +1,7 @@
 package hibernate_test2;
 
-import hibernate_test.entity.Employee;
+import hibernate_test2.entity.Detail;
+import hibernate_test2.entity.Employee;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -10,13 +11,20 @@ public class Test1 {
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(Employee.class)
+                .addAnnotatedClass(Detail.class)
                 .buildSessionFactory();
 
         try {
             Session session = factory.getCurrentSession();
-            Employee emp = new Employee("Aleksandr", "Ivanov", "IT", 600);
+
+            Employee employee = new Employee("Oleg","Smirnov","Sales", 700);
+            Detail detail = new Detail("Moscow", "987654321", "olejka@gmail.com");
+
+            employee.setEmpDetail(detail);
             session.beginTransaction();
-            session.save(emp);
+
+            session.save(employee);
+
             session.getTransaction().commit();
         } finally {
             factory.close();
