@@ -17,15 +17,12 @@ public class Test2 {
         try {
 
             session = factory.getCurrentSession();
-            Employee employee = new Employee("Nikolay", "Ivanov", "HR", 850);
-            Detail detail = new Detail("New-York", "147852369", "nikolaj@gmail.com");
-
-            detail.setEmployee(employee); // нужно добавить связи в двух направлениях
-            employee.setEmpDetail(detail);
 
             session.beginTransaction();
 
-            session.save(detail);
+            Detail detail = session.get(Detail.class,4);
+
+            session.delete(detail);
 
             session.getTransaction().commit();
 
