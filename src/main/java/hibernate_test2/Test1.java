@@ -13,20 +13,19 @@ public class Test1 {
                 .addAnnotatedClass(Employee.class)
                 .addAnnotatedClass(Detail.class)
                 .buildSessionFactory();
-
+        Session session = factory.getCurrentSession();
         try {
-            Session session = factory.getCurrentSession();
 
-            Employee employee = new Employee("Oleg","Smirnov","Sales", 700);
-            Detail detail = new Detail("Moscow", "987654321", "olejka@gmail.com");
-
-            employee.setEmpDetail(detail);
             session.beginTransaction();
 
-            session.save(employee);
+            Employee emp = session.get(Employee.class,10);
 
             session.getTransaction().commit();
+
+            System.out.println(emp.getEmpDetail());
+
         } finally {
+            session.close();
             factory.close();
         }
 
