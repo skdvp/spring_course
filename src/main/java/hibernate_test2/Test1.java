@@ -18,7 +18,7 @@ public class Test1 {
 
             session.beginTransaction();
 
-            Employee emp = session.get(Employee.class,2);
+            Employee emp = session.get(Employee.class,1);
 
             session.delete(emp);
 

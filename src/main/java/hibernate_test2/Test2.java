@@ -17,11 +17,17 @@ public class Test2 {
         try {
 
             session = factory.getCurrentSession();
-
             session.beginTransaction();
 
-            Detail detail = session.get(Detail.class,4);
 
+            //TODO
+            // удалить детали отдельно возможно только,
+            // если разорвать связь с внешим ключом,
+            // способ через Java - засетить полность строку null,
+            // затерев тем самым связь, которая бросает Exception
+
+            Detail detail = session.get(Detail.class, 5);
+            detail.getEmployee().setEmpDetail(null);
             session.delete(detail);
 
             session.getTransaction().commit();
