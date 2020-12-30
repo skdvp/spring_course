@@ -20,13 +20,14 @@ public class Test1 {
             session.beginTransaction();
             Employee employee = session.get(Employee.class, 1);
 
-            System.out.println(employee);
-            System.out.println(employee.getDepartment());
+            session.delete(employee);
 
             session.getTransaction().commit();
 
         } finally {
-            session.close();
+            if (session != null) {
+                session.close();
+            }
             factory.close();
         }
 
