@@ -17,10 +17,9 @@ public class Test1 {
             session = factory.getCurrentSession();
 
             session.beginTransaction();
-            Department department = session.get(Department.class, 2);
+            Department dep = session.get(Department.class, 2);
 
-            System.out.println(department);
-            System.out.println(department.getEmps());
+            session.delete(dep);
 
             session.getTransaction().commit();
 
